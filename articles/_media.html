@@ -1,0 +1,52 @@
+<!-- Code is Copyright (C) 2022 Ethan Uppal, all rights reserved. Pedagogical storytelling is property of Mr. Cocoros. If you're reading this, hello! -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/cocowiki/style.css">
+        <title>Mr. Cocoros Wiki</title>
+    </head>
+    <body>
+        <div id="content">
+            <h1><a id="home" href="/cocowiki/index.html">[Home]</a> Mr. Cocoros Wiki</h1>
+            <hr />
+            <article>
+                <noscript>
+                    This page needs JavaScript to function. :(
+                </noscript>
+                <h2 id="filename">Filename Loading...</h2>
+                <img id="image" alt="Image failed to load." />
+                <p id="description"></p>
+                <script>
+                let searchParams = new URLSearchParams(window.location.search);
+                let filenameH2 = document.getElementById('filename');
+                let imageImg = document.getElementById('image');
+                let descriptionP = document.getElementById('description');
+                if (searchParams.has('a')) {
+                    let filename = searchParams.get('a');
+                    let imageURL = `/cocowiki/assets/${filename}`;
+                    filenameH2.innerText = filename;
+                    imageImg.src = imageURL;
+                    descriptionP.innerText = `Image rendered as ${imageImg.width} by ${imageImg.height}.`
+                } else {
+                    filenameH2.innerText = 'Error 404';
+                    descriptionP.innerText = 'You were sent to an invalid media link. If you clicked on a link in the wiki, that\'s probably an error on my part. If you didn\'t, check that the place you got it from spelled everything correctly.'
+                }
+                </script>
+            </article>
+            <div id="contribute">
+                <hr />
+                <p>Want to edit or write articles for this wiki? <a href="/cocowiki/contribute.html">Click here!</a></p>
+            </div>
+            <div id="secret">
+                <a href="/cocowiki/secret.html">Nothing to see here.</a>
+                <script type="text/javascript">
+                    if (Math.random() < 0.1) {
+                        document.getElementById('secret').classList.add('show');
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
