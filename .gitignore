@@ -3,3 +3,10 @@ cocowiki
 *.swift
 *.swift~
 test.txt
+*.c
+*.c~
+*.o
+*.out
+makepoly
+trapsum
+sphw8
